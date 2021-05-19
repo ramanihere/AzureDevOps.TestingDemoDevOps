@@ -11,7 +11,7 @@ pool:
 
 steps:
 
-- task: Maven@3.0.0-M3
+- task: Maven@3
 
   inputs:
   <project>
