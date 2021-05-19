@@ -13,9 +13,8 @@ steps:
 
 - task: Maven@3
 
-  inputs:
-  <project>
-    <build>
+inputs:
+<build>
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -39,8 +38,6 @@ steps:
       </plugin>
     </plugins>
   </build>
-  </project>
-
 mavenPomFile: 'pom.xml'
 mavenOptions: '-Xmx3072m'
 javaHomeOption: 'JDKVersion'
