@@ -15,8 +15,7 @@ steps:
 
   inputs:
   <project>
-  [...]
-  <build>
+    <build>
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -40,7 +39,6 @@ steps:
       </plugin>
     </plugins>
   </build>
-  [...]
   </project>
 
 mavenPomFile: 'pom.xml'
