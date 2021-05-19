@@ -12,7 +12,7 @@ pool:
 steps:
 
 - task: Maven@3
-inputs:
+  inputs:
 mavenPomFile: 'pom.xml' 
 goals: 'package' # Optional
 javaHomeOption: 'JDKVersion' # Options: jDKVersion, path
