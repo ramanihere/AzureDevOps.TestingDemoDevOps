@@ -10,7 +10,10 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
+
 - task: Maven@3
+<artifactId>maven-enforcer-plugin</artifactId>
+<version>3.0.0-M3</version>
   inputs:
     mavenPomFile: 'pom.xml'
     mavenOptions: '-Xmx3072m'
