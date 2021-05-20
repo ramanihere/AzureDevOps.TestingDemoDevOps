@@ -30,8 +30,6 @@ steps:
     Contents: '**/.war'
     TargetFolder: '$(build.artifactstagingdirectory)'
 
-
-steps:
 - task: NuGetToolInstaller@1
 
 - task: VSBuild@1
