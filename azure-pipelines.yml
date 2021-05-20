@@ -9,6 +9,11 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
+variables:
+  solution: '**/*.sln'
+  buildPlatform: 'Any CPU'
+  buildConfiguration: 'Release'
+
 steps:
 - task: Maven@3
   inputs:
@@ -25,11 +30,10 @@ steps:
     Contents: '**/.war'
     TargetFolder: '$(build.artifactstagingdirectory)'
 
+
+steps:
 - task: NuGetToolInstaller@1
 
-- task: NuGetCommand@2
-  inputs:
-    restoreSolution: '$(solution)'
 - task: VSBuild@1
   inputs:
     solution: '$(solution)'
