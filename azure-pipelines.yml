@@ -22,13 +22,10 @@ steps:
     goals: 'package'
 - task: CopyFiles@2
   inputs:
-    Contents: '**/*.warfile'
+    Contents: '**/*.war'
     TargetFolder: '$(build.artifactstagingdirectory)'
-
-#Publish build artifacts to Azure Pipelines or a Windows file share
 - task: PublishBuildArtifacts@1
   inputs:
-    pathToPublish: '$(Build.ArtifactStagingDirectory)' 
-    artifactName: 'wardata' 
-    publishLocation: 'Container' 
-    
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'wardata'
+    publishLocation: 'Container'
