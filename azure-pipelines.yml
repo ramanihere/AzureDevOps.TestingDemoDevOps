@@ -1,0 +1,26 @@
+# Maven
+# Build your Java project and run tests with Apache Maven.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/java
+
+trigger:
+- master
+
+pool:
+  vmImage: ubuntu-16.04
+steps:
+  - task: Npm@1
+    inputs:
+      command: 'custom'
+      customcommand: 'install --production'
+  - script: |
+      npm install
+      npm test
+  - task: PublishCodeCoverageResults@1
+    displayName: 'Publish Code Coverage'
+    condition: 'in(variables[''Agent.JobStatus''], ''Succeeded'')'
+    inputs:
+      codeCoverageTool: Cobertura
+      summaryFileLocation: '$(System.DefaultWorkingDirectory)/coverage/*coverage.xml'
+      reportDirectory: $(System.DefaultWorkingDirectory)/coverage
+    
